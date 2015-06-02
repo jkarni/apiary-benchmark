@@ -5,6 +5,7 @@ benchmark result of haskell lightweight web frameworks.
 Frameworks
 ---
 * [apiary](src/apiary.hs)
+* [servant](src/servant.hs)
 * [scotty](src/scotty.hs)
 * [Spock](src/Spock.hs)
 * [yesod](src/yesod.hs)
@@ -14,9 +15,8 @@ How to run
 ```.sh
 cabal update
 cabal sandbox init
-cabal get apiary-1.2.3 Spock-0.7.7.0 scotty-0.9.1 yesod-core-1.4.7.2
-cabal install -fapiary -fSpock -fyesod-core -fscotty --only-dependencies
-./scripts/all.sh apiary-1.2.3 Spock-0.7.7.0 scotty-0.9.1 yesod-core-1.4.7.2
+cabal install -fapiary -fservant -fSpock -fyesod-core -fscotty --only-dependencies
+./scripts/all.sh apiary servant Spock scotty yesod-core
 ```
 
 Benchmarks

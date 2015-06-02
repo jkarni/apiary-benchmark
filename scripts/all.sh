@@ -13,10 +13,10 @@ env:
 EOD
 exit 1
 else
-  NTHREAD=${NTHREAD:-1}
+  NTHREAD=${NTHREAD:-2}
   MACHINE=${MACHINE:-`uname -n`}
   BENCH_TIME=${BENCH_TIME:-30s}
-  NBENCH=${NBENCH:-10}
+  NBENCH=${NBENCH:-2}
   PORT=${PORT:-8080}
 fi
 
@@ -29,11 +29,6 @@ for PKG in $@; do
   FRAMEWORK=${PKG%-*}
   VERSION=${PKG##*-}
 
-  cabal sandbox hc-pkg unregister $FRAMEWORK
-  [ -e ./$PKG ] || cabal get $PKG
-  cd $PKG && cabal clean && cd ..
-  cabal install ./$PKG
-  cabal clean
   cabal configure -f$FRAMEWORK
   cabal build $FRAMEWORK
 
